@@ -1,4 +1,4 @@
-# Ems
+# Ems -Mean Stack
 sample project express microservice backend API call with angular web Project 
 Login -Authentication
 Choose Category
