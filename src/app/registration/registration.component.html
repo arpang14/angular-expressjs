@@ -1,0 +1,47 @@
+
+   <div class="form_container form-group" >
+  <div *ngIf="displayerrormessage" class="alert alert-danger" role="alert">
+    <strong>!</strong> {{errormessage}}
+  </div>
+  <h4>Registeration</h4>
+  <form [formGroup]="formdata" (ngSubmit)="onclicksubmit(formdata)" method="post">
+    <div class="container">
+      <div class="form-group">
+        <label for="name"><b>name</b></label>
+        <input   class="form-control"  type="text" formControlName="name" placeholder="Enter name" name="name">
+      </div>
+      <div class="form-group">
+        <label for="id"><b>UserId</b></label>
+        <input  class="form-control"  type="text" formControlName="id" placeholder="Enter id" name="id">
+      </div>
+      <div class="form-group">
+        <label for="email"><b>email</b></label>
+        <input  class="form-control"  type="text" formControlName="email" placeholder="Enter email" name="email">
+      </div>
+      <div class="form-group">
+        <label for="phone"><b>phone</b></label>
+        <input   class="form-control" type="text" formControlName="phone" placeholder="Enter phone" name="phone">
+      </div>
+      <div class="form-group">
+        <label for="loginname"><b>Username</b></label>
+        <input  class="form-control"  type="text" formControlName="loginname" placeholder="Enter Username" name="loginname">
+      </div>
+      <div class="form-group">
+        <label for="password"><b>Password</b></label>
+        <input   class="form-control"  type="password" formControlName="password" placeholder="Enter Password" name="password">
+      </div>
+      <div class="form-group">
+        <label for="status"><b>status</b></label>
+        <input   class="form-control"  type="status" formControlName="status" placeholder="Enter status" name="status">
+      </div>
+        <div class="form-group">
+          <label for="role"><b>role</b></label>
+          <input   class="form-control"  type="role" formControlName="role" placeholder="Enter role" name="role">
+        </div>
+        <div class="form-group">
+          <button [class]="formdata.valid?'colorClassGreen btn':'colorclassRed btn'" [disabled]="!formdata.valid" value="Register"
+            type="submit">Register</button>
+        </div>
+      </div>
+  </form>
+  </div>

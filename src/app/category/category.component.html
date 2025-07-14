@@ -1,0 +1,54 @@
+<div class="container">
+  <h2>Category List </h2>
+  <p>Employee list Record</p>
+
+  <!--<table class="table">
+
+    <thead>
+      <tr>
+        <th>Code </th>
+        <th>Name</th>
+    
+        <th>Gender</th>
+        <th>Annual Salary</th>
+        <th>Date of Birth </th>
+      </tr>
+    </thead>
+    <tbody>
+       <tr *ngIf="!employeeList || employeeList.length==0">
+        <td colspan="5"> No employee List to Display</td>
+      </tr> 
+      <tr *ngFor="let employee of employeeList;let index=index;" [ngClass]="{'myStyle': 0 === index % 2}">
+        <td>{{employee.code| uppercase}}</td>
+        <td>{{employee.name | employeeTitle:employee.gender}}</td>
+        <td>{{employee.gender}}</td>
+          <td>{{employee.salary}}</td>
+            <td>{{employee.dateOfbirth | date : 'fullDate'|uppercase}}</td>
+      </tr> 
+     
+    </tbody>
+  </table>-->
+    <table class="table">
+
+    <thead>
+      <tr>
+        <th>id </th>
+        <th>Name</th>
+        <th>Created At</th>
+      
+      </tr>
+    </thead>
+    <tbody>
+       <tr *ngIf="!categoryList || categoryList.length==0">
+        <td colspan="5"> No Category List to Display</td>
+      </tr> 
+      <tr *ngFor="let category of categoryList;let index=index;" [ngClass]="{'myStyle': 0 === index % 2}">
+        <td>{{category.categoryId}}</td>
+        <td>{{category.categoryName}}</td>
+        <td>{{category.created_At}}</td>
+       
+      </tr> 
+     
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,40 @@
+<div class="container">
+  <app-choosecategory [all]="getTotalExpense()" [grocery]="getTotalExpenseBygrocery()" [travel]="getTotalExpenseBytravel()"
+    [movies]="getTotalExpenseByMovies()" (countradionbittonselectedChanged)="onexpenseCountRadioButtonChange($event);"></app-choosecategory>
+  <p>Expense list Records</p>
+  <button type="button" class="btn btn-danger" routerLink="/addexpense">Add Expense</button>
+  <table class="table" *ngIf="expenselist">
+    <thead>
+      <tr>
+        <th>categoryId</th>
+        <th>expenseId</th>
+        <th>expenseName</th>
+        <th>amount</th>
+        <th>created_At</th>
+        <th colspan="2">Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngIf="expenselist.length==0">
+        <td colspan="5">  No Expense List to Display</td>
+      </tr>
+      <ng-container *ngFor="let expense of expenselist ;let index=index;">
+        <tr *ngIf="selectedexpenseCountRadioButton=='All' || selectedexpenseCountRadioButton==expense.categoryId.categoryName" [ngClass]="{'myStyle': 0 === index % 2}">
+          <td>{{expense.categoryId.categoryName}}</td>
+          <td>{{expense.expenseId}}</td>
+          <td>{{expense.expenseName}}</td>
+          <td>{{expense.amount}}</td>
+          <td>{{expense.created_At | date : 'fullDate'|uppercase}}</td>
+          <td>
+            <button type="button" class="btn btn-info" routerLink="/addexpense/{{expense._id}}">Edit</button>
+          </td>
+          <td>
+            <button type="button" class="btn btn-danger" (click)="onDelete(expense)">Delete</button>
+          </td>
+        </tr>
+      </ng-container>
+
+    </tbody>
+  </table>
+</div>

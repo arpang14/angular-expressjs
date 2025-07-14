@@ -1,0 +1,46 @@
+<div class="container">
+
+
+  <div class="form_container form-group">
+    <h4> {{actionmode}} Expense </h4>
+    <form [formGroup]="formdataexpense" (ngSubmit)="onclicksubmit(formdataexpense)" action="action_page.php" method="post">
+      <div class="container">
+        <div class="form-group">
+          <label for="uname"><b>expenseName</b></label>
+          <input type="text" class="form-control" formControlName="expenseName" placeholder="Enter expenseName" name="expenseName"
+            required>
+        </div>
+        <div class="form-group">
+          <label for="amount"><b>amount</b></label>
+          <input type="text" class="form-control" formControlName="amount" placeholder="Enter amount" name="amount" required>
+        </div>
+        <div class="form-group">
+          <label for="categoryId"><b>categoryId</b></label>
+          <!--<input type="text" class="form-control" formControlName="categoryId" placeholder="Enter categoryId" name="categoryId" required>-->
+
+
+        <select  class="form-control" name="categoryId" formControlName="categoryId">
+        <option value="">--All--</option>
+        <option *ngFor="let category of categorylist" value={{category._id}} [selected]="category._id ==expenseDetailcategoryId">
+            {{category.categoryName}}
+        </option>
+    </select>
+        </div>
+        <div class="form-group">
+          <label for="expenseId"><b>expenseId</b></label>
+          <input type="text" class="form-control" formControlName="expenseId" placeholder="Enter amount" name="expenseId" required>
+
+        </div>
+        <div class="form-group">
+          <label for="created_At"><b>created_At</b></label>
+          <input type="text" class="form-control" formControlName="created_At" placeholder="Enter created_At" name="created_At" required>
+
+        </div>
+
+        <button type="submit" [class]="formdataexpense.valid?'colorClassGreen btn':'colorclassRed btn'" [disabled]="!formdataexpense.valid"
+          value="save">Submit</button>
+
+      </div>
+    </form>
+  </div>
+</div>

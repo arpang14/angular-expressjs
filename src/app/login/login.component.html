@@ -1,0 +1,21 @@
+<div class="form_container">
+  <div  *ngIf="displayerrormessage" class="alert alert-danger" role="alert">
+  <strong>!</strong> {{errormessage}}
+</div>
+  <h4>Login Form</h4>
+  <form [formGroup]="formdata" (ngSubmit)="onclicksubmit(formdata)" action="action_page.php" method="post">
+    <div class="container">
+      <div class="help">At least 6 character.</div>
+      <label for="loginname"><b>Username</b></label>
+      <input   class="form-control"  type="text" formControlName="loginname" placeholder="Enter Username" name="loginname" required>
+
+      <div class="help">At least 6 character</div>
+      <label for="password"><b>Password</b></label>
+      <input  class="form-control"  type="password" formControlName="password" placeholder="Enter Password" name="password" required>
+
+      <div class="help">Use uppercase and lower case letter as well</div>
+      <button [class]="formdata.valid?'colorClassGreen btn':'colorclassRed btn'" [disabled]="!formdata.valid" value="login" type="submit">Login</button>
+
+    </div>
+  </form>
+</div>
