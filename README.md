@@ -1,4 +1,10 @@
 # Ems
+sample project express microservice backend API call with angular web Project 
+Login -Authentication
+Choose Category
+Expense Creation with Listing and Basic Crud Operations
+Basic Crud operations
+Expense -Category
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.7.
 
